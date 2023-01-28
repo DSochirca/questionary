@@ -1,0 +1,22 @@
+.list-view .list-cell:even {
+-fx-background-color: #2B2B2B;
+-fx-border-color:  #0c7bc0;
+-fx-text-fill: #ffffff;
+}
+.list-view .list-cell:odd {
+-fx-background-color: #2B2B2B;
+-fx-border-color:  #0c7bc0;
+-fx-text-fill: #ffffff;
+}
+.text-area {
+    -fx-background-color: #2B2B2B, #2B2B2B;
+    -fx-text-box-border: transparent;
+    -fx-focus-color: transparent;
+    -fx-text-fill: #ffffff;
+}
+.text-area .content {
+    -fx-background-color: #2B2B2B;
+}
+.text-area:focused .content {
+    -fx-background-color: #2B2B2B;
+}

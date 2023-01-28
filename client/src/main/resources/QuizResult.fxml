@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="465.0" maxWidth="230.0" prefHeight="418.0" prefWidth="230.0" style="-fx-background-color: #2b2b2b;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.tudelft.oopp.demo.controllers.QuizResultController">
+   <children>
+      <Group fx:id="lecturerAddons" layoutX="4.0" layoutY="-36.0">
+         <children>
+            <TextField alignment="TOP_LEFT" editable="false" focusTraversable="false" layoutY="43.0" prefHeight="398.0" prefWidth="156.0" style="-fx-background-color: #2B2B2B; -fx-background-radius: 20px; -fx-border-color: #0c7bc0; -fx-border-radius: 20px; -fx-text-fill: #ffffff;" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2b2b2b" height="112.0" layoutX="1.0" layoutY="59.0" pickOnBounds="true" stroke="#0d7bbf00" strokeLineCap="ROUND" strokeType="INSIDE" width="154.0" />
+            <TextField fx:id="resA" alignment="BOTTOM_LEFT" editable="false" focusTraversable="false" layoutX="12.0" layoutY="48.0" prefHeight="23.0" prefWidth="132.0" style="-fx-background-color: #2b2b2b; -fx-text-fill: #ffffff;" text="A                            0%" visible="false">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="resB" alignment="BOTTOM_LEFT" editable="false" focusTraversable="false" layoutX="12.0" layoutY="85.0" prefHeight="23.0" prefWidth="132.0" style="-fx-background-color: #2b2b2b; -fx-text-fill: #ffffff;" text="B                            0%" visible="false">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="resC" alignment="BOTTOM_LEFT" editable="false" focusTraversable="false" layoutX="12.0" layoutY="124.0" prefHeight="23.0" prefWidth="132.0" style="-fx-background-color: #2b2b2b; -fx-text-fill: #ffffff;" text="C                            0%" visible="false">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </TextField>
+            <Rectangle fx:id="secondaryBarA" arcHeight="5.0" arcWidth="5.0" fill="#414141" height="16.0" layoutX="12.0" layoutY="67.0" pickOnBounds="true" stroke="#414141" strokeLineCap="ROUND" strokeType="INSIDE" style="-fx-arc-height: 15; -fx-arc-width: 15;" visible="false" width="132.0" />
+            <Rectangle fx:id="secondaryBarB" arcHeight="5.0" arcWidth="5.0" fill="#414141" height="16.0" layoutX="12.0" layoutY="105.0" pickOnBounds="true" stroke="#414141" strokeLineCap="ROUND" strokeType="INSIDE" style="-fx-arc-height: 15; -fx-arc-width: 15;" visible="false" width="132.0" />
+            <Rectangle fx:id="secondaryBarC" arcHeight="5.0" arcWidth="5.0" fill="#414141" height="16.0" layoutX="12.0" layoutY="144.0" pickOnBounds="true" stroke="#414141" strokeLineCap="ROUND" strokeType="INSIDE" style="-fx-arc-height: 15; -fx-arc-width: 15;" visible="false" width="132.0" />
+            <Rectangle fx:id="barA" arcHeight="5.0" arcWidth="5.0" fill="#0c7bc0" height="16.0" layoutX="12.0" layoutY="67.0" pickOnBounds="true" stroke="#0c7bc0" strokeLineCap="ROUND" strokeType="INSIDE" style="-fx-arc-height: 15; -fx-arc-width: 15;" visible="false" width="42.0" />
+            <Rectangle fx:id="barB" arcHeight="5.0" arcWidth="5.0" fill="#0c7bc0" height="16.0" layoutX="11.0" layoutY="105.0" pickOnBounds="true" stroke="#0c7bc0" strokeLineCap="ROUND" strokeType="INSIDE" style="-fx-arc-height: 15; -fx-arc-width: 15;" visible="false" width="87.0" />
+            <Rectangle fx:id="barC" arcHeight="5.0" arcWidth="5.0" fill="#0c7bc0" height="16.0" layoutX="12.0" layoutY="144.0" pickOnBounds="true" stroke="#0c7bc0" strokeLineCap="ROUND" strokeType="INSIDE" style="-fx-arc-height: 15; -fx-arc-width: 15;" visible="false" width="51.0" />
+            <Rectangle fx:id="secondaryBarD" arcHeight="5.0" arcWidth="5.0" fill="#414141" height="16.0" layoutX="12.0" layoutY="186.0" pickOnBounds="true" stroke="#414141" strokeLineCap="ROUND" strokeType="INSIDE" style="-fx-arc-height: 15; -fx-arc-width: 15;" visible="false" width="132.0" />
+            <Rectangle fx:id="barD" arcHeight="5.0" arcWidth="5.0" fill="#0c7bc0" height="16.0" layoutX="12.0" layoutY="186.0" pickOnBounds="true" stroke="#0c7bc0" strokeLineCap="ROUND" strokeType="INSIDE" style="-fx-arc-height: 15; -fx-arc-width: 15;" visible="false" width="51.0" />
+            <TextField fx:id="resD" alignment="BOTTOM_LEFT" editable="false" focusTraversable="false" layoutX="12.0" layoutY="162.0" prefHeight="23.0" prefWidth="132.0" style="-fx-background-color: #2b2b2b; -fx-text-fill: #ffffff;" text="D                            0%" visible="false">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </TextField>
+            <Button fx:id="answerA" focusTraversable="false" layoutX="156.0" layoutY="62.0" mnemonicParsing="false" onAction="#answerA" style="-fx-background-color: #282828; -fx-border-color: #0c7bc0; -fx-background-radius: 5px; -fx-border-radius: 5px; -fx-text-fill: #ffffff;" text="A Correct" visible="false">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="answerD" focusTraversable="false" layoutX="157.0" layoutY="180.0" mnemonicParsing="false" onAction="#answerD" style="-fx-background-color: #282828; -fx-border-color: #0c7bc0; -fx-background-radius: 5px; -fx-border-radius: 5px; -fx-text-fill: #ffffff;" text="D Correct" visible="false">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="answerC" focusTraversable="false" layoutX="157.0" layoutY="139.0" mnemonicParsing="false" onAction="#answerC" style="-fx-background-color: #282828; -fx-border-color: #0c7bc0; -fx-background-radius: 5px; -fx-border-radius: 5px; -fx-text-fill: #ffffff;" text="C Correct" visible="false">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="answerB" focusTraversable="false" layoutX="156.0" layoutY="101.0" mnemonicParsing="false" onAction="#answerB" style="-fx-background-color: #282828; -fx-border-color: #0c7bc0; -fx-background-radius: 5px; -fx-border-radius: 5px; -fx-text-fill: #ffffff;" text="B Correct" visible="false">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <TextField fx:id="resE" alignment="BOTTOM_LEFT" editable="false" focusTraversable="false" layoutX="12.0" layoutY="202.0" prefHeight="23.0" prefWidth="132.0" style="-fx-background-color: #2b2b2b; -fx-text-fill: #ffffff;" text="E                            0%" visible="false">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </TextField>
+            <Rectangle fx:id="secondaryBarE" arcHeight="5.0" arcWidth="5.0" fill="#414141" height="16.0" layoutX="14.0" layoutY="224.0" pickOnBounds="true" stroke="#414141" strokeLineCap="ROUND" strokeType="INSIDE" style="-fx-arc-height: 15; -fx-arc-width: 15;" visible="false" width="132.0" />
+            <Rectangle fx:id="barE" arcHeight="5.0" arcWidth="5.0" fill="#0c7bc0" height="16.0" layoutX="14.0" layoutY="224.0" pickOnBounds="true" stroke="#0c7bc0" strokeLineCap="ROUND" strokeType="INSIDE" style="-fx-arc-height: 15; -fx-arc-width: 15;" visible="false" width="51.0" />
+            <TextField fx:id="resF" alignment="BOTTOM_LEFT" editable="false" focusTraversable="false" layoutX="12.0" layoutY="241.0" prefHeight="23.0" prefWidth="132.0" style="-fx-background-color: #2b2b2b; -fx-text-fill: #ffffff;" text="F                            0%" visible="false">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </TextField>
+            <Rectangle fx:id="secondaryBarF" arcHeight="5.0" arcWidth="5.0" fill="#414141" height="16.0" layoutX="14.0" layoutY="263.0" pickOnBounds="true" stroke="#414141" strokeLineCap="ROUND" strokeType="INSIDE" style="-fx-arc-height: 15; -fx-arc-width: 15;" visible="false" width="132.0" />
+            <Rectangle fx:id="barF" arcHeight="5.0" arcWidth="5.0" fill="#0c7bc0" height="16.0" layoutX="14.0" layoutY="263.0" pickOnBounds="true" stroke="#0c7bc0" strokeLineCap="ROUND" strokeType="INSIDE" style="-fx-arc-height: 15; -fx-arc-width: 15;" visible="false" width="51.0" />
+            <TextField fx:id="resG" alignment="BOTTOM_LEFT" editable="false" focusTraversable="false" layoutX="14.0" layoutY="279.0" prefHeight="23.0" prefWidth="132.0" style="-fx-background-color: #2b2b2b; -fx-text-fill: #ffffff;" text="G                            0%" visible="false">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </TextField>
+            <Rectangle fx:id="secondaryBarG" arcHeight="5.0" arcWidth="5.0" fill="#414141" height="16.0" layoutX="14.0" layoutY="299.0" pickOnBounds="true" stroke="#414141" strokeLineCap="ROUND" strokeType="INSIDE" style="-fx-arc-height: 15; -fx-arc-width: 15;" visible="false" width="132.0" />
+            <Rectangle fx:id="barG" arcHeight="5.0" arcWidth="5.0" fill="#0c7bc0" height="16.0" layoutX="14.0" layoutY="299.0" pickOnBounds="true" stroke="#0c7bc0" strokeLineCap="ROUND" strokeType="INSIDE" style="-fx-arc-height: 15; -fx-arc-width: 15;" visible="false" width="51.0" />
+            <TextField fx:id="resH" alignment="BOTTOM_LEFT" editable="false" focusTraversable="false" layoutX="12.0" layoutY="315.0" prefHeight="23.0" prefWidth="132.0" style="-fx-background-color: #2b2b2b; -fx-text-fill: #ffffff;" text="H                            0%" visible="false">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </TextField>
+            <Rectangle fx:id="secondaryBarH" arcHeight="5.0" arcWidth="5.0" fill="#414141" height="16.0" layoutX="14.0" layoutY="338.0" pickOnBounds="true" stroke="#414141" strokeLineCap="ROUND" strokeType="INSIDE" style="-fx-arc-height: 15; -fx-arc-width: 15;" visible="false" width="132.0" />
+            <Rectangle fx:id="barH" arcHeight="5.0" arcWidth="5.0" fill="#0c7bc0" height="16.0" layoutX="14.0" layoutY="338.0" pickOnBounds="true" stroke="#0c7bc0" strokeLineCap="ROUND" strokeType="INSIDE" style="-fx-arc-height: 15; -fx-arc-width: 15;" visible="false" width="51.0" />
+            <TextField fx:id="resI" alignment="BOTTOM_LEFT" editable="false" focusTraversable="false" layoutX="12.0" layoutY="354.0" prefHeight="23.0" prefWidth="132.0" style="-fx-background-color: #2b2b2b; -fx-text-fill: #ffffff;" text="I                            0%" visible="false">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </TextField>
+            <Rectangle fx:id="secondaryBarI" arcHeight="5.0" arcWidth="5.0" fill="#414141" height="16.0" layoutX="12.0" layoutY="377.0" pickOnBounds="true" stroke="#414141" strokeLineCap="ROUND" strokeType="INSIDE" style="-fx-arc-height: 15; -fx-arc-width: 15;" visible="false" width="132.0" />
+            <Rectangle fx:id="barI" arcHeight="5.0" arcWidth="5.0" fill="#0c7bc0" height="16.0" layoutX="13.0" layoutY="377.0" pickOnBounds="true" stroke="#0c7bc0" strokeLineCap="ROUND" strokeType="INSIDE" style="-fx-arc-height: 15; -fx-arc-width: 15;" visible="false" width="51.0" />
+            <TextField fx:id="resJ" alignment="BOTTOM_LEFT" editable="false" focusTraversable="false" layoutX="12.0" layoutY="393.0" prefHeight="23.0" prefWidth="132.0" style="-fx-background-color: #2b2b2b; -fx-text-fill: #ffffff;" text="J                            0%" visible="false">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </TextField>
+            <Rectangle fx:id="secondaryBarJ" arcHeight="5.0" arcWidth="5.0" fill="#414141" height="16.0" layoutX="12.0" layoutY="411.0" pickOnBounds="true" stroke="#414141" strokeLineCap="ROUND" strokeType="INSIDE" style="-fx-arc-height: 15; -fx-arc-width: 15;" visible="false" width="132.0" />
+            <Rectangle fx:id="barJ" arcHeight="5.0" arcWidth="5.0" fill="#0c7bc0" height="16.0" layoutX="12.0" layoutY="411.0" pickOnBounds="true" stroke="#0c7bc0" strokeLineCap="ROUND" strokeType="INSIDE" style="-fx-arc-height: 15; -fx-arc-width: 15;" visible="false" width="51.0" />
+            <Button fx:id="answerE" focusTraversable="false" layoutX="157.0" layoutY="221.0" mnemonicParsing="false" onAction="#answerE" style="-fx-background-color: #282828; -fx-border-color: #0c7bc0; -fx-background-radius: 5px; -fx-border-radius: 5px; -fx-text-fill: #ffffff;" text="E Correct" visible="false">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="answerF" focusTraversable="false" layoutX="157.0" layoutY="258.0" mnemonicParsing="false" onAction="#answerF" style="-fx-background-color: #282828; -fx-border-color: #0c7bc0; -fx-background-radius: 5px; -fx-border-radius: 5px; -fx-text-fill: #ffffff;" text="F Correct" visible="false">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="answerG" focusTraversable="false" layoutX="157.0" layoutY="294.0" mnemonicParsing="false" onAction="#answerG" style="-fx-background-color: #282828; -fx-border-color: #0c7bc0; -fx-background-radius: 5px; -fx-border-radius: 5px; -fx-text-fill: #ffffff;" text="G Correct" visible="false">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="answerH" focusTraversable="false" layoutX="157.0" layoutY="332.0" mnemonicParsing="false" onAction="#answerH" style="-fx-background-color: #282828; -fx-border-color: #0c7bc0; -fx-background-radius: 5px; -fx-border-radius: 5px; -fx-text-fill: #ffffff;" text="H Correct" visible="false">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="answerI" focusTraversable="false" layoutX="157.0" layoutY="371.0" mnemonicParsing="false" onAction="#answerI" style="-fx-background-color: #282828; -fx-border-color: #0c7bc0; -fx-background-radius: 5px; -fx-border-radius: 5px; -fx-text-fill: #ffffff;" text="I Correct" visible="false">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="answerJ" focusTraversable="false" layoutX="157.0" layoutY="405.0" mnemonicParsing="false" onAction="#answerJ" style="-fx-background-color: #282828; -fx-border-color: #0c7bc0; -fx-background-radius: 5px; -fx-border-radius: 5px; -fx-text-fill: #ffffff;" text="J Correct" visible="false">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </Group>
+   </children>
+</AnchorPane>

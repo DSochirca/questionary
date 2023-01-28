@@ -1,0 +1,776 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.tudelft.oopp.demo.controllers.MainSceneController">
+    <children>
+        <AnchorPane fx:id="welcomeScreen" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #212121;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <center>
+                        <Group BorderPane.alignment="CENTER">
+                            <children>
+                                <TextField fx:id="nameField" focusTraversable="false" layoutX="40.0" layoutY="191.0" prefHeight="38.0" prefWidth="322.0" promptText="Your name here:" style="-fx-background-color: #2B2B2B; -fx-background-radius: 5px; -fx-text-fill: #FEFEFE;" />
+                                <TextField alignment="CENTER" editable="false" focusTraversable="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="146.0" prefWidth="393.0" style="-fx-background-color: #212121; -fx-text-fill: #FEFEFE;" text="Welcome !">
+                                    <font>
+                                        <Font name="System Italic" size="67.0" />
+                                    </font>
+                                </TextField>
+                                <TextField alignment="CENTER" editable="false" focusTraversable="false" layoutX="99.0" layoutY="102.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="31.0" prefWidth="180.0" style="-fx-background-color: #212121; -fx-text-fill: #FEFEFE;" text="Choose your role:">
+                                    <font>
+                                        <Font name="System Italic" size="20.0" />
+                                    </font>
+                                </TextField>
+                                <TextField alignment="CENTER" editable="false" focusTraversable="false" layoutX="124.0" layoutY="137.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="44.0" prefWidth="25.0" style="-fx-background-color: #212121; -fx-text-fill: #FEFEFE;" text="|">
+                                    <font>
+                                        <Font name="System Italic" size="18.0" />
+                                    </font>
+                                </TextField>
+                                <TextField alignment="CENTER" editable="false" focusTraversable="false" layoutX="258.0" layoutY="137.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="44.0" prefWidth="25.0" style="-fx-background-color: #212121; -fx-text-fill: #FEFEFE;" text="|">
+                                    <font>
+                                        <Font name="System Italic" size="18.0" />
+                                    </font>
+                                </TextField>
+                                <Button fx:id="submitButton" layoutX="300.0" layoutY="197.0" mnemonicParsing="false" onAction="#submitPressed" prefHeight="26.0" prefWidth="51.0" style="-fx-background-color: #212121; -fx-text-fill: F29913; -fx-background-radius: 5px;" text="Submit">
+                                    <font>
+                                        <Font size="10.0" />
+                                    </font>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </Button>
+                                <TextField fx:id="invalidName" editable="false" layoutX="42.0" layoutY="229.0" prefHeight="26.0" prefWidth="229.0" style="-fx-background-color: #212121; -fx-text-fill: #FEFEFE;" text="*Please enter a name and choose a role" visible="false" />
+                                <ToggleButton fx:id="lecturerRole" layoutX="30.0" layoutY="137.0" mnemonicParsing="false" onAction="#setRoleAsLecturer" prefHeight="44.0" prefWidth="106.0" style="-fx-background-color: #212121; -fx-text-fill: F29913;" text="Lecturer">
+                                    <font>
+                                        <Font size="20.0" />
+                                    </font>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </ToggleButton>
+                                <ToggleButton fx:id="moderatorRole" layoutX="144.0" layoutY="137.0" mnemonicParsing="false" onAction="#setRoleAsModerator" prefHeight="44.0" prefWidth="123.0" style="-fx-background-color: #212121; -fx-text-fill: F29913;" text="Moderator">
+                                    <font>
+                                        <Font size="20.0" />
+                                    </font>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </ToggleButton>
+                                <ToggleButton fx:id="studentRole" layoutX="276.0" layoutY="137.0" mnemonicParsing="false" onAction="#setRoleAsStudent" prefHeight="44.0" prefWidth="106.0" style="-fx-background-color: #212121; -fx-text-fill: F29913;" text="Student">
+                                    <font>
+                                        <Font size="20.0" />
+                                    </font>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </ToggleButton>
+                                <AnchorPane fx:id="closedPopup" layoutY="45.0" prefHeight="48.0" prefWidth="392.0" style="-fx-background-color: #212121; -fx-border-radius: 8px; -fx-border-color: #707070; -fx-border-width: 5px;" visible="false">
+                                    <children>
+                                        <TextField alignment="CENTER" focusTraversable="false" layoutX="20.0" layoutY="41.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="71.0" prefWidth="351.0" style="-fx-background-color: #212121; -fx-text-fill: white;" text="This lecture room has ended.">
+                                            <font>
+                                                <Font name="System Bold Italic" size="20.0" />
+                                            </font>
+                                        </TextField>
+                                        <Button layoutX="143.0" layoutY="124.0" mnemonicParsing="false" onAction="#hideClosedPopup" style="-fx-background-color: #212121; -fx-border-radius: 5px; -fx-border-width: 3px; -fx-border-color: #707070; -fx-text-fill: F29913;" text="Proceed">
+                                            <font>
+                                                <Font size="20.0" />
+                                            </font>
+                                        </Button>
+                                    </children>
+                                </AnchorPane>
+                            </children>
+                            <BorderPane.margin>
+                                <Insets top="-50.0" />
+                            </BorderPane.margin>
+                        </Group>
+                    </center>
+                </BorderPane>
+            <AnchorPane fx:id="helpPage" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #212121;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <TextArea editable="false" focusTraversable="false" layoutX="14.0" layoutY="14.0" prefHeight="92.0" prefWidth="269.0" style="-fx-background-color: #212121; -fx-border-color: F29913; -fx-border-width: 2px; -fx-border-radius: 10px; -fx-text-fill: ffffff;" stylesheets="@styles.css" wrapText="true" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="55.0" AnchorPane.topAnchor="14.0" />
+                  <AnchorPane fx:id="helpPage1" layoutX="14.0" layoutY="14.0" prefHeight="326.0" prefWidth="531.0" visible="false" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="55.0" AnchorPane.topAnchor="14.0">
+                     <children>
+                        <StackPane layoutX="-3.0" layoutY="14.0" prefHeight="32.0" prefWidth="531.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="14.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="32.0" prefWidth="183.0" text="Setting your role" textFill="WHITE">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </StackPane>
+                        <TextArea editable="false" focusTraversable="false" layoutX="12.0" layoutY="49.0" prefHeight="45.0" prefWidth="507.0" style="-fx-background-color: #212121; -fx-border-width: 2px; -fx-border-radius: 10px; -fx-text-fill: ffffff;" stylesheets="@styles.css" text="To join rooms you must first choose a role and write your username. You can select your role by pressing on any of the following buttons from the welcome screen:" wrapText="true" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="49.0" />
+                        <StackPane layoutY="98.0" prefHeight="72.0" prefWidth="531.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-0.20000000000004547" AnchorPane.topAnchor="98.0">
+                           <children>
+                              <Label fx:id="roleSelectionLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="36.0" prefWidth="73.0" />
+                           </children>
+                        </StackPane>
+                        <TextArea editable="false" focusTraversable="false" layoutX="12.0" layoutY="179.0" prefHeight="45.0" prefWidth="507.0" style="-fx-background-color: #212121; -fx-border-width: 2px; -fx-border-radius: 10px; -fx-text-fill: ffffff;" stylesheets="@styles.css" text="Once a role has been selected, that role will become highlighted. " wrapText="true" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="179.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="helpPage2" prefHeight="326.0" prefWidth="531.0" visible="false" AnchorPane.bottomAnchor="59.60000000000002" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="54.799999999999955" AnchorPane.topAnchor="14.0">
+                     <children>
+                        <StackPane layoutX="-3.0" layoutY="14.0" prefHeight="32.0" prefWidth="531.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="14.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="32.0" prefWidth="183.0" text="Joining a room" textFill="WHITE">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </StackPane>
+                        <TextArea editable="false" focusTraversable="false" layoutX="12.0" layoutY="163.0" prefHeight="72.0" prefWidth="507.0" style="-fx-background-color: #212121; -fx-border-width: 2px; -fx-border-radius: 10px; -fx-text-fill: ffffff;" stylesheets="@styles.css" text="To join a room as a moderator or a lecturer you must also have an access token aside from the room code. The code and token must then be placed in the following boxes in the join screen:" wrapText="true" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="163.0" />
+                        <StackPane layoutY="92.0" prefHeight="54.0" prefWidth="531.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="92.0">
+                           <children>
+                              <Label fx:id="studentJoinRoomLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="36.0" prefWidth="73.0" />
+                           </children>
+                        </StackPane>
+                        <TextArea editable="false" focusTraversable="false" layoutX="12.0" layoutY="62.0" prefHeight="34.0" prefWidth="507.0" style="-fx-background-color: #212121; -fx-border-width: 2px; -fx-border-radius: 10px; -fx-text-fill: ffffff;" stylesheets="@styles.css" text="Joining a room as a student is as simple as placing the room code in the following field:" wrapText="true" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.000000000000057" AnchorPane.topAnchor="62.0" />
+                        <StackPane layoutY="223.0" prefHeight="72.0" prefWidth="531.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-0.20000000000004547" AnchorPane.topAnchor="223.0">
+                           <children>
+                              <Label fx:id="modJoinRoomLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="36.0" prefWidth="73.0" />
+                           </children>
+                        </StackPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="helpPage3" layoutX="24.0" layoutY="24.0" prefHeight="326.0" prefWidth="531.0" visible="false" AnchorPane.bottomAnchor="59.60000000000002" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="54.799999999999955" AnchorPane.topAnchor="14.0">
+                     <children>
+                        <StackPane layoutX="-3.0" layoutY="14.0" prefHeight="32.0" prefWidth="531.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="14.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="32.0" prefWidth="183.0" text="Creating a room" textFill="WHITE">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </StackPane>
+                        <TextArea editable="false" focusTraversable="false" layoutX="12.0" layoutY="62.0" prefHeight="150.0" prefWidth="507.0" style="-fx-background-color: #212121; -fx-border-width: 2px; -fx-border-radius: 10px; -fx-text-fill: ffffff;" stylesheets="@styles.css" text="When creating a room you have two options: &#10;&#10;- You can create a room instantly by pressing the create room button and you will be able to join it directly in the following screen. Students will be allowed to enter this room once a moderator or lecturer joins.&#10;&#10;- You can enter a time and date in the following fields before pressing the create room button:" wrapText="true" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="62.0" />
+                        <Label fx:id="dateTimeImageLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="110.0" layoutY="212.0" prefHeight="32.0" prefWidth="156.0" AnchorPane.leftAnchor="110.0" AnchorPane.topAnchor="212.0" />
+                        <TextArea editable="false" focusTraversable="false" layoutX="12.0" layoutY="265.0" prefHeight="54.0" prefWidth="507.0" style="-fx-background-color: #212121; -fx-border-width: 2px; -fx-border-radius: 10px; -fx-text-fill: ffffff;" stylesheets="@styles.css" text="No user will be allowed to enter this room before the time set. It is advised to copy the codes before leaving the information screen." wrapText="true" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.000000000000057" AnchorPane.topAnchor="265.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="helpPage4" layoutX="24.0" layoutY="24.0" prefHeight="326.0" prefWidth="531.0" visible="false" AnchorPane.bottomAnchor="59.60000000000002" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="54.799999999999955" AnchorPane.topAnchor="14.0">
+                     <children>
+                        <StackPane layoutX="-3.0" layoutY="14.0" prefHeight="32.0" prefWidth="531.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="14.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="32.0" prefWidth="183.0" text="Being a Student" textFill="WHITE">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </StackPane>
+                        <TextArea editable="false" focusTraversable="false" layoutX="12.0" layoutY="53.0" prefHeight="26.0" prefWidth="507.0" style="-fx-background-color: #212121; -fx-border-width: 2px; -fx-border-radius: 10px; -fx-text-fill: ffffff;" stylesheets="@styles.css" text="When you finally join a lecture you have a couple of options as a student:" wrapText="true" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.000000000000057" AnchorPane.topAnchor="53.0" />
+                        <TextArea editable="false" focusTraversable="false" layoutX="38.0" layoutY="81.0" prefHeight="54.0" prefWidth="466.0" style="-fx-background-color: #212121; -fx-border-width: 2px; -fx-border-radius: 10px; -fx-text-fill: ffffff;" stylesheets="@styles.css" text="- You can post a question by clicking on the top field, writing your question and then pressing the post button:" wrapText="true" AnchorPane.leftAnchor="38.0" AnchorPane.rightAnchor="26.800000000000068" AnchorPane.topAnchor="81.0" />
+                        <TextArea editable="false" focusTraversable="false" layoutX="35.0" layoutY="182.0" prefHeight="72.0" prefWidth="471.0" style="-fx-background-color: #212121; -fx-border-width: 2px; -fx-border-radius: 10px; -fx-text-fill: ffffff;" stylesheets="@styles.css" text="- You can vote on the lecture speed by pressing on any of the speed voting buttons on the right side of your screen:" wrapText="true" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="26.800000000000068" AnchorPane.topAnchor="182.0" />
+                        <StackPane layoutX="228.0" layoutY="122.0" AnchorPane.leftAnchor="228.0" AnchorPane.rightAnchor="228.80000000000007" AnchorPane.topAnchor="122.0">
+                           <children>
+                              <Label fx:id="postQuestionLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="46.0" prefWidth="74.0" />
+                           </children>
+                        </StackPane>
+                        <StackPane layoutX="228.0" layoutY="224.0" AnchorPane.leftAnchor="228.0" AnchorPane.rightAnchor="228.80000000000004" AnchorPane.topAnchor="224.0">
+                           <children>
+                              <Label fx:id="lectureSpeedStudentLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="95.0" prefWidth="74.0" />
+                           </children>
+                        </StackPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="helpPage5" layoutX="24.0" layoutY="24.0" prefHeight="326.0" prefWidth="531.0" visible="false" AnchorPane.bottomAnchor="59.60000000000002" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="54.799999999999955" AnchorPane.topAnchor="14.0">
+                     <children>
+                        <StackPane layoutX="-3.0" layoutY="14.0" prefHeight="32.0" prefWidth="531.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="14.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="32.0" prefWidth="241.0" text="Being a Student - Questions" textFill="WHITE">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </StackPane>
+                        <TextArea editable="false" focusTraversable="false" layoutX="12.0" layoutY="53.0" prefHeight="46.0" prefWidth="507.0" style="-fx-background-color: #212121; -fx-border-width: 2px; -fx-border-radius: 10px; -fx-text-fill: ffffff;" stylesheets="@styles.css" text="Now that you have asked your first question, you can also see different buttons on the questions." wrapText="true" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="53.0" />
+                        <TextArea editable="false" focusTraversable="false" layoutX="101.0" layoutY="109.0" prefHeight="46.0" prefWidth="401.0" style="-fx-background-color: #212121; -fx-border-width: 2px; -fx-border-radius: 10px; -fx-text-fill: ffffff;" stylesheets="@styles.css" text="- The upvote button will allow you to upvote any question. Pressing it twice will remove your upvote." wrapText="true" AnchorPane.leftAnchor="101.0" AnchorPane.rightAnchor="29.0" AnchorPane.topAnchor="109.0" />
+                        <Label fx:id="upvoteLabelStudent" alignment="CENTER" contentDisplay="CENTER" layoutX="35.0" layoutY="102.0" prefHeight="40.0" prefWidth="40.0" AnchorPane.leftAnchor="35.0" AnchorPane.topAnchor="102.0" />
+                        <Label fx:id="deleteLabelStudent" alignment="CENTER" contentDisplay="CENTER" layoutX="35.0" layoutY="167.0" prefHeight="40.0" prefWidth="40.0" AnchorPane.leftAnchor="35.0" AnchorPane.topAnchor="167.0" />
+                        <Label fx:id="editLabelStudent" alignment="CENTER" contentDisplay="CENTER" layoutX="35.0" layoutY="241.0" prefHeight="40.0" prefWidth="40.0" AnchorPane.leftAnchor="35.0" AnchorPane.topAnchor="241.0" />
+                        <TextArea editable="false" focusTraversable="false" layoutX="101.0" layoutY="173.0" prefHeight="66.0" prefWidth="402.0" style="-fx-background-color: #212121; -fx-border-width: 2px; -fx-border-radius: 10px; -fx-text-fill: ffffff;" stylesheets="@styles.css" text="- The delete button will allow you to delete any of your questions. Once deleted, questions cannot be recovered. You cannot delete other student's questions." wrapText="true" AnchorPane.leftAnchor="101.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="173.0" />
+                        <TextArea editable="false" focusTraversable="false" layoutX="101.0" layoutY="248.0" prefHeight="46.0" prefWidth="401.0" style="-fx-background-color: #212121; -fx-border-width: 2px; -fx-border-radius: 10px; -fx-text-fill: ffffff;" stylesheets="@styles.css" text="- The edit button will allow you to edit your question. You cannot edit other student's questions." wrapText="true" AnchorPane.leftAnchor="101.0" AnchorPane.rightAnchor="28.600000000000023" AnchorPane.topAnchor="248.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="helpPage6" layoutX="24.0" layoutY="24.0" prefHeight="326.0" prefWidth="531.0" visible="false" AnchorPane.bottomAnchor="59.60000000000002" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="54.799999999999955" AnchorPane.topAnchor="14.0">
+                     <children>
+                        <StackPane layoutX="-3.0" layoutY="14.0" prefHeight="32.0" prefWidth="531.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="14.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="32.0" prefWidth="241.0" text="Being a Lecturer" textFill="WHITE">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </StackPane>
+                        <TextArea editable="false" focusTraversable="false" layoutX="12.0" layoutY="53.0" prefHeight="46.0" prefWidth="507.0" style="-fx-background-color: #212121; -fx-border-width: 2px; -fx-border-radius: 10px; -fx-text-fill: ffffff;" stylesheets="@styles.css" text="Now that the room is created, there are multiple buttons to help you during your lecture:&#10;" wrapText="true" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="53.0" />
+                        <TextArea editable="false" focusTraversable="false" layoutX="148.0" layoutY="94.0" prefHeight="66.0" prefWidth="354.0" style="-fx-background-color: #212121; -fx-border-width: 2px; -fx-border-radius: 10px; -fx-text-fill: ffffff;" stylesheets="@styles.css" text="- Ending the lecture will remove you from the room and it will also end the lecture, kicking everyone else as well. Once a room has been closed students can no longer join it." wrapText="true" AnchorPane.leftAnchor="148.0" AnchorPane.rightAnchor="29.0" AnchorPane.topAnchor="94.0" />
+                        <Label fx:id="endLectureLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="25.0" layoutY="94.0" prefHeight="28.0" prefWidth="104.0" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="94.0" />
+                        <Label fx:id="lecturerModeLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="25.0" layoutY="163.0" prefHeight="28.0" prefWidth="104.0" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="163.0" />
+                        <TextArea editable="false" focusTraversable="false" layoutX="148.0" layoutY="163.0" prefHeight="46.0" prefWidth="354.0" style="-fx-background-color: #212121; -fx-border-width: 2px; -fx-border-radius: 10px; -fx-text-fill: ffffff;" stylesheets="@styles.css" text="- Entering lecturer mode will remove everything besides the unanswered questions, thus there will be no distractions." wrapText="true" AnchorPane.leftAnchor="148.0" AnchorPane.rightAnchor="28.800000000000068" AnchorPane.topAnchor="163.0" />
+                        <Label fx:id="lectureSpeedLecturerLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="25.0" layoutY="209.0" prefHeight="110.0" prefWidth="104.0" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="209.0" />
+                        <TextArea editable="false" focusTraversable="false" layoutX="148.0" layoutY="242.0" prefHeight="66.0" prefWidth="354.0" style="-fx-background-color: #212121; -fx-border-width: 2px; -fx-border-radius: 10px; -fx-text-fill: ffffff;" stylesheets="@styles.css" text="- In this area you can see what the students have voted fopr the lecture speed. This will change in time based on the student votes. Higher the blue bar then more student voted." wrapText="true" AnchorPane.leftAnchor="148.0" AnchorPane.rightAnchor="29.0" AnchorPane.topAnchor="242.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="helpPage7" layoutX="24.0" layoutY="24.0" prefHeight="326.0" prefWidth="531.0" visible="false" AnchorPane.bottomAnchor="59.60000000000002" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="54.799999999999955" AnchorPane.topAnchor="14.0">
+                     <children>
+                        <StackPane layoutX="-3.0" layoutY="14.0" prefHeight="32.0" prefWidth="531.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="14.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="32.0" prefWidth="346.0" text="Being a Lecturer / Moderator - Questions" textFill="WHITE">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </StackPane>
+                        <TextArea editable="false" focusTraversable="false" layoutX="12.0" layoutY="53.0" prefHeight="46.0" prefWidth="507.0" style="-fx-background-color: #212121; -fx-border-width: 2px; -fx-border-radius: 10px; -fx-text-fill: ffffff;" stylesheets="@styles.css" text="Questions will have different applications themselves:" wrapText="true" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="53.0" />
+                        <TextArea editable="false" focusTraversable="false" layoutX="100.0" layoutY="100.0" prefHeight="23.0" prefWidth="402.0" style="-fx-background-color: #212121; -fx-border-width: 2px; -fx-border-radius: 10px; -fx-text-fill: ffffff;" stylesheets="@styles.css" text="- The edit button will let you edit any student's question." wrapText="true" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="29.0" AnchorPane.topAnchor="100.0" />
+                        <Label fx:id="editLabelLecturer" alignment="CENTER" contentDisplay="CENTER" layoutX="33.0" layoutY="94.0" prefHeight="40.0" prefWidth="40.0" AnchorPane.leftAnchor="33.0" AnchorPane.topAnchor="94.0" />
+                        <Label fx:id="markAsAnsweredLabelLecturer" alignment="CENTER" contentDisplay="CENTER" layoutX="33.0" layoutY="143.0" prefHeight="40.0" prefWidth="40.0" AnchorPane.leftAnchor="33.0" AnchorPane.topAnchor="143.0" />
+                        <Label fx:id="deleteLabelLecturer" alignment="CENTER" contentDisplay="CENTER" layoutX="33.0" layoutY="196.0" prefHeight="40.0" prefWidth="40.0" AnchorPane.leftAnchor="33.0" AnchorPane.topAnchor="196.0" />
+                        <Label fx:id="banLabelLecturer" alignment="CENTER" contentDisplay="CENTER" layoutX="33.0" layoutY="244.0" prefHeight="40.0" prefWidth="40.0" AnchorPane.leftAnchor="33.0" AnchorPane.topAnchor="244.0" />
+                        <TextArea editable="false" focusTraversable="false" layoutX="100.0" layoutY="149.0" prefHeight="46.0" prefWidth="402.0" style="-fx-background-color: #212121; -fx-border-width: 2px; -fx-border-radius: 10px; -fx-text-fill: ffffff;" stylesheets="@styles.css" text="- The mark as answered button will mark that question as answered. That question can still be seen by going to answered questions" wrapText="true" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="28.800000000000068" AnchorPane.topAnchor="149.0" />
+                        <TextArea editable="false" focusTraversable="false" layoutX="100.0" layoutY="199.0" prefHeight="23.0" prefWidth="402.0" style="-fx-background-color: #212121; -fx-border-width: 2px; -fx-border-radius: 10px; -fx-text-fill: ffffff;" stylesheets="@styles.css" text="- The delete button will delete that question permanently." wrapText="true" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="28.800000000000068" AnchorPane.topAnchor="199.0" />
+                        <TextArea editable="false" focusTraversable="false" layoutX="100.0" layoutY="248.0" prefHeight="66.0" prefWidth="402.0" style="-fx-background-color: #212121; -fx-border-width: 2px; -fx-border-radius: 10px; -fx-text-fill: ffffff;" stylesheets="@styles.css" text="- The ban button will ban the question's user IP address permanently for that lecture. That user will still be able to see questions but will be unable to post any questions." wrapText="true" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="28.800000000000068" AnchorPane.topAnchor="248.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="helpPage8" layoutX="24.0" layoutY="24.0" prefHeight="326.0" prefWidth="531.0" AnchorPane.bottomAnchor="59.60000000000002" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="54.799999999999955" AnchorPane.topAnchor="14.0">
+                     <children>
+                        <StackPane layoutX="-3.0" layoutY="14.0" prefHeight="32.0" prefWidth="531.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="14.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="32.0" prefWidth="346.0" text="Being a Lecturer / Moderator - Quizzes" textFill="WHITE">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </StackPane>
+                        <TextArea editable="false" focusTraversable="false" layoutX="12.0" layoutY="53.0" prefHeight="46.0" prefWidth="507.0" style="-fx-background-color: #212121; -fx-border-width: 2px; -fx-border-radius: 10px; -fx-text-fill: ffffff;" stylesheets="@styles.css" text="You can choose the number of answers in the quiz by using the top slider before pressing the quiz button." wrapText="true" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="53.0" />
+                        <Label fx:id="quizSliderLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="170.39999389648438" layoutY="88.0" prefHeight="40.0" prefWidth="190.0" AnchorPane.leftAnchor="170.39999389648438" AnchorPane.topAnchor="88.0" />
+                        <TextArea editable="false" focusTraversable="false" layoutX="12.0" layoutY="140.0" prefHeight="46.0" prefWidth="507.0" style="-fx-background-color: #212121; -fx-border-width: 2px; -fx-border-radius: 10px; -fx-text-fill: ffffff;" stylesheets="@styles.css" text="After pressing the start quiz buttons students will have a screen like the following (for 2 answers chosen):" wrapText="true" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.000000000000057" AnchorPane.topAnchor="140.0" />
+                        <TextArea editable="false" focusTraversable="false" layoutX="12.0" layoutY="275.0" prefHeight="66.0" prefWidth="507.0" style="-fx-background-color: #212121; -fx-border-width: 2px; -fx-border-radius: 10px; -fx-text-fill: ffffff;" stylesheets="@styles.css" text="Once you end the quiz, a pop-up containing the quiz reslts will appear. In this pop-up you will be able too chose the correct answer for that quiz. This will close the pop-up and notify students whether their choice was correct or not. " wrapText="true" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="275.0" />
+                        <Label fx:id="quizStudentLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="179.0" layoutY="177.0" prefHeight="95.0" prefWidth="156.0" AnchorPane.leftAnchor="179.0" AnchorPane.topAnchor="177.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="helpPage9" layoutX="24.0" layoutY="24.0" prefHeight="326.0" prefWidth="531.0" visible="false" AnchorPane.bottomAnchor="59.60000000000002" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="54.799999999999955" AnchorPane.topAnchor="14.0">
+                     <children>
+                        <StackPane layoutX="-3.0" layoutY="14.0" prefHeight="32.0" prefWidth="531.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="14.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="32.0" prefWidth="346.0" text="Being a Lecturer / Moderator - Exporting" textFill="WHITE">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </StackPane>
+                        <TextArea editable="false" focusTraversable="false" layoutX="12.0" layoutY="53.0" prefHeight="23.0" prefWidth="507.0" style="-fx-background-color: #212121; -fx-border-width: 2px; -fx-border-radius: 10px; -fx-text-fill: ffffff;" stylesheets="@styles.css" text="Once the export button is pressed, a pop-up such as the following will appear:" wrapText="true" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="53.0" />
+                        <Label fx:id="exportLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="134.0" layoutY="87.0" prefHeight="162.0" prefWidth="242.0" AnchorPane.leftAnchor="134.0" AnchorPane.topAnchor="87.0" />
+                        <StackPane layoutX="188.0" layoutY="177.0" AnchorPane.leftAnchor="188.0" AnchorPane.rightAnchor="187.20000000000005" AnchorPane.topAnchor="177.0" />
+                        <TextArea editable="false" focusTraversable="false" layoutX="12.0" layoutY="284.0" prefHeight="38.0" prefWidth="507.0" style="-fx-background-color: #212121; -fx-border-width: 2px; -fx-border-radius: 10px; -fx-text-fill: ffffff;" stylesheets="@styles.css" text="Here you can select the name and location your questions will be saved to." wrapText="true" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.000000000000057" AnchorPane.topAnchor="284.0" />
+                     </children>
+                  </AnchorPane>
+                  <StackPane layoutX="14.0" layoutY="348.0" prefHeight="28.0" prefWidth="531.0" AnchorPane.bottomAnchor="24.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="54.799999999999955">
+                     <children>
+                        <Group>
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#advanceBackwards" prefHeight="27.0" prefWidth="26.0" style="-fx-background-color: #212121; -fx-text-fill: F29913; -fx-border-radius: 5px; -fx-border-color: F29913; -fx-border-width: 2px;" text="&lt;">
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Button layoutX="64.0" mnemonicParsing="false" onAction="#advanceForwards" prefHeight="27.0" prefWidth="26.0" style="-fx-background-color: #212121; -fx-text-fill: F29913; -fx-border-radius: 5px; -fx-border-color: F29913; -fx-border-width: 2px;" text="&gt;">
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Label fx:id="helpPageLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="27.0" prefHeight="26.0" prefWidth="38.0" text="1 / 7" textAlignment="CENTER" textFill="WHITE" />
+                           </children>
+                        </Group>
+                     </children>
+                  </StackPane>
+               </children></AnchorPane>
+            <Button layoutX="551.0" layoutY="10.0" mnemonicParsing="false" onAction="#makeHelpPageVisible" style="-fx-background-color: #212121; -fx-text-fill: F29913; -fx-border-radius: 5px; -fx-border-color: F29913; -fx-border-width: 2px;" text=" ? " AnchorPane.rightAnchor="10.600000000000001" AnchorPane.topAnchor="10.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            </children>
+        </AnchorPane>
+        <AnchorPane fx:id="joinRoomStudent" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #212121;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <center>
+                        <Group BorderPane.alignment="CENTER">
+                            <children>
+                                <TextField fx:id="roomIdStudent" focusTraversable="false" layoutX="71.0" layoutY="158.0" prefHeight="38.0" prefWidth="294.0" promptText="Room id here:" style="-fx-background-color: #2B2B2B; -fx-background-radius: 5px; -fx-text-fill: #FFFFFF;" />
+                                <Button layoutX="306.0" layoutY="161.0" mnemonicParsing="false" onAction="#joinRoomClicked" prefHeight="26.0" prefWidth="51.0" style="-fx-background-color: #212121; -fx-text-fill: F29913; -fx-background-radius: 5px;" text="Join">
+                                    <font>
+                                        <Font size="15.0" />
+                                    </font>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </Button>
+                                <TextField alignment="CENTER" editable="false" focusTraversable="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="146.0" prefWidth="412.0" style="-fx-background-color: #212121; -fx-text-fill: #FEFEFE;" text="Join Room:">
+                                    <font>
+                                        <Font size="50.0" />
+                                    </font>
+                                </TextField>
+                                <TextField fx:id="invalidRoomId" editable="false" focusTraversable="false" layoutX="71.0" layoutY="205.0" prefHeight="26.0" prefWidth="269.0" style="-fx-background-color: #212121; -fx-text-fill: #A11616;" text="*room id is invalid or you might be banned" visible="false" />
+                            </children>
+                            <BorderPane.margin>
+                                <Insets top="-30.0" />
+                            </BorderPane.margin>
+                        </Group>
+                    </center>
+                </BorderPane>
+            </children>
+        </AnchorPane>
+        <AnchorPane fx:id="joinRoomModerator" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #212121;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <center>
+                        <Group BorderPane.alignment="CENTER">
+                            <children>
+                                <TextField alignment="CENTER" editable="false" focusTraversable="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="146.0" prefWidth="412.0" style="-fx-background-color: #212121; -fx-text-fill: #FEFEFE;" text="Join Room:">
+                                    <font>
+                                        <Font size="50.0" />
+                                    </font>
+                                </TextField>
+                                <Button layoutX="303.0" layoutY="121.0" mnemonicParsing="false" onAction="#joinRoomAsMod" prefHeight="27.0" prefWidth="87.0" style="-fx-background-color: #212121; -fx-text-fill: F29913; -fx-border-radius: 5px; -fx-border-color: #707070; -fx-border-width: 2px;" text="join">
+                                    <font>
+                                        <Font size="15.0" />
+                                    </font>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </Button>
+                                <TextField fx:id="roomIdLecturer" focusTraversable="false" layoutX="39.0" layoutY="120.0" prefHeight="34.0" prefWidth="132.0" promptText="Room id here:" style="-fx-background-color: #2B2B2B; -fx-background-radius: 5px; -fx-text-fill: #FFFFFF;" />
+                                <TextField fx:id="accessTokenLecturer" focusTraversable="false" layoutX="185.0" layoutY="120.0" prefHeight="34.0" prefWidth="106.0" promptText="Access token:" style="-fx-background-color: #2B2B2B; -fx-background-radius: 5px; -fx-text-fill: #FFFFFF;" />
+                                <TextField alignment="CENTER" editable="false" focusTraversable="false" layoutX="140.0" layoutY="163.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="31.0" prefWidth="132.0" style="-fx-background-color: #212121; -fx-text-fill: #FEFEFE;" text="or host meeting: ">
+                                    <font>
+                                        <Font size="15.0" />
+                                    </font>
+                                </TextField>
+                                <TextField alignment="CENTER" editable="false" focusTraversable="false" layoutX="32.0" layoutY="200.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="18.0" prefWidth="51.0" style="-fx-background-color: #212121; -fx-text-fill: #FEFEFE;" text="date:">
+                                    <font>
+                                        <Font size="15.0" />
+                                    </font>
+                                </TextField>
+                                <TextField fx:id="dateField" focusTraversable="false" layoutX="86.0" layoutY="203.0" prefHeight="27.0" prefWidth="123.0" promptText="yyyy-MM-dd" style="-fx-background-color: #2B2B2B; -fx-background-radius: 5px; -fx-text-fill: #FFFFFF;" />
+                                <TextField fx:id="durationField" focusTraversable="false" layoutX="287.0" layoutY="201.0" prefHeight="31.0" prefWidth="67.0" promptText="HH:mm:ss" style="-fx-background-color: #2B2B2B; -fx-background-radius: 5px; -fx-text-fill: #FFFFFF;" />
+                                <TextField alignment="CENTER" editable="false" focusTraversable="false" layoutX="213.0" layoutY="200.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="31.0" prefWidth="75.0" style="-fx-background-color: #212121; -fx-text-fill: #FEFEFE;" text="time:">
+                                    <font>
+                                        <Font size="15.0" />
+                                    </font>
+                                </TextField>
+                                <TextField editable="false" focusTraversable="false" layoutX="32.0" layoutY="232.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="31.0" prefWidth="329.0" style="-fx-background-color: #212121; -fx-text-fill: #FEFEFE;" text="*if you leave any of these blank, room starts when a mod/lecturer joins">
+                                    <font>
+                                        <Font size="10.0" />
+                                    </font>
+                                </TextField>
+                                <Button layoutX="150.0" layoutY="270.0" mnemonicParsing="false" onAction="#createRoomClicked" prefHeight="11.0" prefWidth="114.0" style="-fx-background-color: #212121; -fx-text-fill: F29913; -fx-border-radius: 5px; -fx-border-color: #707070; -fx-border-width: 2px;" text="create room">
+                                    <font>
+                                        <Font size="13.0" />
+                                    </font>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </Button>
+                            </children>
+                            <BorderPane.margin>
+                                <Insets top="-30.0" />
+                            </BorderPane.margin>
+                        </Group>
+                    </center>
+               <bottom>
+                  <TextField fx:id="dateError" alignment="CENTER" prefHeight="25.0" prefWidth="121.0" style="-fx-background-color: #212121; -fx-text-fill: #A11616;" BorderPane.alignment="CENTER" />
+               </bottom>
+                </BorderPane>
+            </children>
+        </AnchorPane>
+        <AnchorPane fx:id="roomCreated" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #212121;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <center>
+                        <Group BorderPane.alignment="CENTER">
+                            <children>
+                                <TextField alignment="CENTER" editable="false" focusTraversable="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="146.0" prefWidth="600.0" style="-fx-background-color: #212121; -fx-text-fill: #FEFEFE;" text="Your room info: ">
+                                    <font>
+                                        <Font size="50.0" />
+                                    </font>
+                                </TextField>
+                                <TextField fx:id="roomIdField" editable="false" focusTraversable="false" layoutX="263.0" layoutY="121.0" prefHeight="38.0" prefWidth="106.0" style="-fx-background-color: #2B2B2B; -fx-background-radius: 5px; -fx-text-fill: #FFFFFF;" />
+                                <Button defaultButton="true" layoutX="405.0" layoutY="121.0" mnemonicParsing="false" onAction="#copyRoomCodeToClipboard" prefHeight="38.0" prefWidth="67.0" style="-fx-background-color: #212121; -fx-text-fill: F29913; -fx-border-radius: 5px; -fx-border-color: #707070; -fx-border-width: 2px;" text="copy">
+                                    <font>
+                                        <Font size="15.0" />
+                                    </font>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </Button>
+                                <TextField fx:id="accessToken" editable="false" focusTraversable="false" layoutX="263.0" layoutY="182.0" prefHeight="38.0" prefWidth="106.0" style="-fx-background-color: #2B2B2B; -fx-background-radius: 5px; -fx-text-fill: #FFFFFF;" />
+                                <Button defaultButton="true" layoutX="405.0" layoutY="182.0" mnemonicParsing="false" onAction="#copyAccessTokenToClipboard" prefHeight="38.0" prefWidth="67.0" style="-fx-background-color: #212121; -fx-text-fill: F29913; -fx-border-radius: 5px; -fx-border-color: #707070; -fx-border-width: 2px;" text="copy">
+                                    <font>
+                                        <Font size="15.0" />
+                                    </font>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </Button>
+                                <TextField alignment="CENTER" editable="false" focusTraversable="false" layoutX="118.0" layoutY="268.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="18.0" prefWidth="51.0" style="-fx-background-color: #212121; -fx-text-fill: #FEFEFE;" text="date:">
+                                    <font>
+                                        <Font size="15.0" />
+                                    </font>
+                                </TextField>
+                                <TextField fx:id="dateCreated" editable="false" focusTraversable="false" layoutX="173.0" layoutY="264.0" prefHeight="38.0" prefWidth="106.0" style="-fx-background-color: #2B2B2B; -fx-background-radius: 5px; -fx-text-fill: #FFFFFF;" />
+                                <TextField fx:id="durationCreated" editable="false" focusTraversable="false" layoutX="356.0" layoutY="264.0" prefHeight="38.0" prefWidth="67.0" style="-fx-background-color: #2B2B2B; -fx-background-radius: 5px; -fx-text-fill: #FFFFFF;" />
+                                <TextField alignment="CENTER" editable="false" focusTraversable="false" layoutX="284.0" layoutY="268.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="31.0" prefWidth="67.0" style="-fx-background-color: #212121; -fx-text-fill: #FEFEFE;" text="time:">
+                                    <font>
+                                        <Font size="15.0" />
+                                    </font>
+                                </TextField>
+                                <TextField alignment="CENTER" editable="false" focusTraversable="false" layoutX="119.0" layoutY="233.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="31.0" prefWidth="106.0" style="-fx-background-color: #212121; -fx-text-fill: #FEFEFE;" text="scheduled at:">
+                                    <font>
+                                        <Font size="15.0" />
+                                    </font>
+                                </TextField>
+                                <TextField alignment="CENTER" editable="false" focusTraversable="false" layoutX="40.0" layoutY="184.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="38.0" prefWidth="180.0" style="-fx-background-color: #212121; -fx-text-fill: #FEFEFE;" text="Privileged access token:">
+                                    <font>
+                                        <Font size="15.0" />
+                                    </font>
+                                </TextField>
+                                <TextField alignment="CENTER" editable="false" focusTraversable="false" layoutX="114.0" layoutY="124.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="31.0" prefWidth="106.0" style="-fx-background-color: #212121; -fx-text-fill: #FEFEFE;" text="Room code:">
+                                    <font>
+                                        <Font size="15.0" />
+                                    </font>
+                                </TextField>
+                                <Button fx:id="joinRoomDirectly" defaultButton="true" layoutX="253.0" layoutY="322.0" mnemonicParsing="false" onAction="#joinRoomDirectly" prefHeight="35.0" prefWidth="95.0" style="-fx-background-color: #212121; -fx-text-fill: F29913; -fx-border-radius: 5px; -fx-border-color: #707070; -fx-border-width: 2px;" text="Join Room">
+                                    <font>
+                                        <Font size="15.0" />
+                                    </font>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </Button>
+                            </children>
+                        </Group>
+                    </center>
+                    <padding>
+                        <Insets top="-50.0" />
+                    </padding>
+                </BorderPane>
+            </children>
+        </AnchorPane>
+
+        <AnchorPane fx:id="questionScreenStudent" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #212121;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <AnchorPane layoutX="45.0" layoutY="53.0" AnchorPane.bottomAnchor="20.600000000000023" AnchorPane.leftAnchor="45.0" AnchorPane.rightAnchor="192.60000000000002" AnchorPane.topAnchor="53.0">
+                    <children>
+                        <AnchorPane AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <children>
+                                <TextArea fx:id="questionField" focusTraversable="false" prefHeight="72.0" prefWidth="490.0" promptText="What is your question?" style="-fx-background-color: #2B2B2B; -fx-background-radius: 20px; -fx-border-color: #0c7bc0; -fx-border-radius: 20px; -fx-text-fill: #ffffff;" stylesheets="@styles.css" wrapText="true" AnchorPane.bottomAnchor="38.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                <Button fx:id="postButton" focusTraversable="false" layoutX="298.0" layoutY="34.800000000000004" mnemonicParsing="false" onAction="#addQuestionClicked" prefHeight="26.0" prefWidth="51.0" style="-fx-background-color: #0c7bc0; -fx-text-fill: F29913; -fx-background-radius: 100px; -fx-text-fill: #000000;" text="Post" AnchorPane.bottomAnchor="46.0" AnchorPane.rightAnchor="13.199999999999989">
+                                    <font>
+                                        <Font size="10.0" />
+                                    </font>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </Button>
+                                <AnchorPane layoutY="81.0" prefHeight="27.0" prefWidth="362.0" AnchorPane.bottomAnchor="0.5999999999999979" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                    <children>
+                                        <TextField alignment="TOP_LEFT" editable="false" focusTraversable="false" prefHeight="27.0" prefWidth="362.0" style="-fx-background-color: #414141; -fx-background-radius: 20px; -fx-border-radius: 20px; -fx-text-fill: #ffffff;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.8000000000000114" />
+                                        <Button fx:id="refreshButtonPrivileged1" focusTraversable="false" layoutX="310.0" mnemonicParsing="false" onAction="#listQuestionsClicked" prefHeight="26.0" prefWidth="51.0" style="-fx-background-color: #0c7bc0; -fx-text-fill: F29913; -fx-background-radius: 100px; -fx-text-fill: #000000;" text="Refresh" AnchorPane.rightAnchor="1.9999999999999858">
+                                            <font>
+                                                <Font size="10.0" />
+                                            </font>
+                                            <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                            </cursor>
+                                        </Button>
+                                        <TextField alignment="TOP_LEFT" editable="false" focusTraversable="false" layoutX="12.0" prefHeight="27.0" prefWidth="51.0" style="-fx-background-color: #414141; -fx-background-radius: 20px; -fx-border-radius: 20px; -fx-text-fill: #ffffff;" text="Show:" AnchorPane.leftAnchor="12.0" />
+                                        <TextField editable="false" layoutX="114.0" prefHeight="26.0" prefWidth="18.0" style="-fx-background-color: #414141; -fx-text-fill: #ffffff;" text="|" AnchorPane.leftAnchor="114.0" />
+                                        <TextField editable="false" layoutX="198.0" prefHeight="26.0" prefWidth="18.0" style="-fx-background-color: #414141; -fx-text-fill: #ffffff;" text="|" AnchorPane.leftAnchor="198.0" />
+                                        <ToggleButton fx:id="answeredToggleStudent" layoutX="52.0" mnemonicParsing="false" onAction="#setFilterOnAnswered" style="-fx-background-color: #414141;" text="Answered" textFill="WHITE" AnchorPane.leftAnchor="52.0">
+                                            <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                            </cursor>
+                                            <toggleGroup>
+                                                <ToggleGroup fx:id="filterStudent" />
+                                            </toggleGroup>
+                                        </ToggleButton>
+                                        <ToggleButton fx:id="unansweredToggleStudent" layoutX="124.0" mnemonicParsing="false" onAction="#setFilterOnUnanswered" selected="true" style="-fx-background-color: #414141;" text="Unanswered" textFill="WHITE" toggleGroup="$filterStudent" AnchorPane.leftAnchor="124.0">
+                                            <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                            </cursor>
+                                        </ToggleButton>
+                                        <ToggleButton fx:id="bothToggleStudent" layoutX="209.0" layoutY="1.0" mnemonicParsing="false" onAction="#setFilterOnBoth" style="-fx-background-color: #414141;" text="Both" textFill="WHITE" toggleGroup="$filterStudent" AnchorPane.leftAnchor="209.0">
+                                            <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                            </cursor>
+                                        </ToggleButton>
+                                    </children>
+                                </AnchorPane>
+                            </children>
+                        </AnchorPane>
+                        <ListView fx:id="questionsList" layoutY="117.0" prefHeight="209.0" prefWidth="362.0" style="-fx-background-color: #2B2B2B; -fx-background-radius: 20px; -fx-border-color: #0c7bc0; -fx-border-radius: 20px;" stylesheets="@ListViewStyle.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="117.0" />
+                    </children>
+                </AnchorPane>
+                <Group layoutX="430.0" layoutY="53.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="53.0">
+                    <children>
+                        <TextField alignment="TOP_LEFT" editable="false" focusTraversable="false" prefHeight="143.0" prefWidth="156.0" style="-fx-background-color: #2B2B2B; -fx-background-radius: 20px; -fx-border-color: #0c7bc0; -fx-border-radius: 20px; -fx-text-fill: #ffffff;" />
+                        <TextField alignment="CENTER" editable="false" focusTraversable="false" prefHeight="58.0" prefWidth="156.0" style="-fx-background-color: #2B2B2B; -fx-background-radius: 20px; -fx-border-color: #0c7bc0; -fx-border-radius: 20px; -fx-text-fill: #ffffff; -fx-background-opacity: 100;" text="How is the lecture going?" />
+                        <ToggleButton fx:id="fastLectureSpeed" focusTraversable="false" layoutY="44.0" mnemonicParsing="false" onAction="#fastClicked" prefHeight="32.0" prefWidth="156.0" style="-fx-background-color: #2B2B2B; -fx-border-color: #0c7bc0; -fx-text-fill: #ffffff;" text="Fast">
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                        </ToggleButton>
+                        <ToggleButton fx:id="alrightLectureSpeed" focusTraversable="false" layoutY="75.0" mnemonicParsing="false" onAction="#alrightClicked" prefHeight="32.0" prefWidth="156.0" style="-fx-background-color: #2B2B2B; -fx-border-color: #0c7bc0; -fx-text-fill: #ffffff;" text="Alright">
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                        </ToggleButton>
+                        <ToggleButton fx:id="slowLectureSpeed" focusTraversable="false" layoutX="13.0" layoutY="107.0" mnemonicParsing="false" onAction="#slowClicked" prefHeight="32.0" prefWidth="127.0" style="-fx-background-color: #2B2B2B; -fx-text-fill: #ffffff;" text="Slow">
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                        </ToggleButton>
+                    </children>
+                </Group>
+                <Button focusTraversable="false" layoutX="534.0" layoutY="14.0" mnemonicParsing="false" onAction="#exitRoom" style="-fx-background-color: #282828; -fx-border-color: #0c7bc0; -fx-background-radius: 5px; -fx-border-radius: 5px; -fx-text-fill: #ffffff;" text="Quit" AnchorPane.rightAnchor="24.4" AnchorPane.topAnchor="14.0">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Button>
+                <TextField fx:id="roomCode" alignment="CENTER" editable="false" focusTraversable="false" layoutX="430.0" layoutY="358.0" prefHeight="27.0" prefWidth="156.0" style="-fx-background-color: #2B2B2B; -fx-background-radius: 20px; -fx-border-color: #0c7bc0; -fx-border-radius: 20px; -fx-text-fill: #ffffff;" AnchorPane.bottomAnchor="14.8" AnchorPane.rightAnchor="14.0" />
+                <TextField alignment="CENTER" editable="false" focusTraversable="false" layoutX="430.0" layoutY="331.0" prefHeight="26.0" prefWidth="156.0" style="-fx-background-color: #212121; -fx-text-fill: #ffffff;" text="Room code:" AnchorPane.bottomAnchor="42.6" AnchorPane.rightAnchor="14.0" />
+                <TextField fx:id="answerDisplay" alignment="CENTER" editable="false" focusTraversable="false" layoutX="50.0" layoutY="12.0" prefHeight="32.0" prefWidth="354.0" style="-fx-background-color: #2B2B2B; -fx-background-radius: 20px; -fx-border-color: #0c7bc0; -fx-border-radius: 20px; -fx-text-fill: #ffffff; -fx-background-opacity: 100;" visible="false" />
+                <ToggleButton fx:id="answerBButton" focusTraversable="false" layoutX="486.0" layoutY="213.0" mnemonicParsing="false" onAction="#answerBClicked" prefHeight="18.0" prefWidth="70.0" style="-fx-background-color: #2B2B2B; -fx-border-color: #0c7bc0; -fx-text-fill: #ffffff;" text="B" visible="false">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </ToggleButton>
+                <ToggleButton fx:id="answerCButton" focusTraversable="false" layoutX="416.0" layoutY="239.0" mnemonicParsing="false" onAction="#answerCClicked" prefHeight="18.0" prefWidth="70.0" style="-fx-background-color: #2B2B2B; -fx-border-color: #0c7bc0; -fx-text-fill: #ffffff;" text="C" visible="false">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </ToggleButton>
+                <ToggleButton fx:id="answerDButton" focusTraversable="false" layoutX="486.0" layoutY="239.0" mnemonicParsing="false" onAction="#answerDClicked" prefHeight="18.0" prefWidth="70.0" style="-fx-background-color: #2B2B2B; -fx-border-color: #0c7bc0; -fx-text-fill: #ffffff;" text="D" visible="false">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </ToggleButton>
+                <ToggleButton fx:id="answerEButton" focusTraversable="false" layoutX="416.0" layoutY="266.0" mnemonicParsing="false" onAction="#answerEClicked" prefHeight="18.0" prefWidth="70.0" style="-fx-background-color: #2B2B2B; -fx-border-color: #0c7bc0; -fx-text-fill: #ffffff;" text="E" visible="false">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </ToggleButton>
+                <ToggleButton fx:id="answerHButton" focusTraversable="false" layoutX="486.0" layoutY="293.0" mnemonicParsing="false" onAction="#answerHClicked" prefHeight="18.0" prefWidth="70.0" style="-fx-background-color: #2B2B2B; -fx-border-color: #0c7bc0; -fx-text-fill: #ffffff;" text="H" visible="false">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </ToggleButton>
+                <ToggleButton fx:id="answerGButton" focusTraversable="false" layoutX="416.0" layoutY="293.0" mnemonicParsing="false" onAction="#answerGClicked" prefHeight="18.0" prefWidth="70.0" style="-fx-background-color: #2B2B2B; -fx-border-color: #0c7bc0; -fx-text-fill: #ffffff;" text="G" visible="false">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </ToggleButton>
+                <ToggleButton fx:id="answerFButton" focusTraversable="false" layoutX="486.0" layoutY="266.0" mnemonicParsing="false" onAction="#answerFClicked" prefHeight="18.0" prefWidth="70.0" style="-fx-background-color: #2B2B2B; -fx-border-color: #0c7bc0; -fx-text-fill: #ffffff;" text="F" visible="false">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </ToggleButton>
+                <ToggleButton fx:id="answerAButton" focusTraversable="false" layoutX="416.0" layoutY="213.0" mnemonicParsing="false" onAction="#answerAClicked" prefHeight="18.0" prefWidth="70.0" style="-fx-background-color: #2B2B2B; -fx-border-color: #0c7bc0; -fx-text-fill: #ffffff;" text="A" visible="false">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </ToggleButton>
+                <ToggleButton fx:id="answerIButton" focusTraversable="false" layoutX="556.0" layoutY="213.0" mnemonicParsing="false" onAction="#answerIClicked" prefHeight="54.0" prefWidth="32.0" style="-fx-background-color: #2B2B2B; -fx-border-color: #0c7bc0; -fx-text-fill: #ffffff;" text="I" visible="false">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </ToggleButton>
+                <ToggleButton fx:id="answerJButton" focusTraversable="false" layoutX="556.0" layoutY="266.0" mnemonicParsing="false" onAction="#answerJClicked" prefHeight="54.0" prefWidth="32.0" style="-fx-background-color: #2B2B2B; -fx-border-color: #0c7bc0; -fx-text-fill: #ffffff;" text="J" visible="false">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </ToggleButton>
+            </children>
+        </AnchorPane>
+        <AnchorPane fx:id="questionScreenPrivileged" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #212121;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <AnchorPane layoutX="45.0" layoutY="51.0" AnchorPane.bottomAnchor="19.399999999999977" AnchorPane.leftAnchor="45.0" AnchorPane.rightAnchor="192.60000000000002" AnchorPane.topAnchor="51.0">
+                    <children>
+                        <AnchorPane AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-0.8000000000000114" AnchorPane.topAnchor="0.0">
+                            <children>
+                                <TextField alignment="TOP_LEFT" editable="false" focusTraversable="false" prefHeight="27.0" prefWidth="362.0" style="-fx-background-color: #414141; -fx-background-radius: 20px; -fx-border-radius: 20px; -fx-text-fill: #ffffff;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.8000000000000114" />
+                                <Button fx:id="refreshButtonPrivileged" focusTraversable="false" layoutX="310.0" mnemonicParsing="false" onAction="#listQuestionsClicked" prefHeight="26.0" prefWidth="51.0" style="-fx-background-color: #0c7bc0; -fx-text-fill: F29913; -fx-background-radius: 100px; -fx-text-fill: #000000;" text="Refresh" AnchorPane.rightAnchor="1.9999999999999858">
+                                    <font>
+                                        <Font size="10.0" />
+                                    </font>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </Button>
+                                <TextField alignment="TOP_LEFT" editable="false" focusTraversable="false" layoutX="12.0" prefHeight="27.0" prefWidth="51.0" style="-fx-background-color: #414141; -fx-background-radius: 20px; -fx-border-radius: 20px; -fx-text-fill: #ffffff;" text="Show:" AnchorPane.leftAnchor="12.0" />
+                                <TextField editable="false" layoutX="114.0" prefHeight="26.0" prefWidth="18.0" style="-fx-background-color: #414141; -fx-text-fill: #ffffff;" text="|" AnchorPane.leftAnchor="114.0" />
+                                <TextField editable="false" layoutX="198.0" prefHeight="26.0" prefWidth="18.0" style="-fx-background-color: #414141; -fx-text-fill: #ffffff;" text="|" AnchorPane.leftAnchor="198.0" />
+                                <ToggleButton fx:id="answeredToggle" layoutX="52.0" mnemonicParsing="false" onAction="#setFilterOnAnswered" style="-fx-background-color: #414141;" text="Answered" textFill="WHITE" AnchorPane.leftAnchor="52.0">
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                    <toggleGroup>
+                                        <ToggleGroup fx:id="filterPrivileged" />
+                                    </toggleGroup>
+                                </ToggleButton>
+                                <ToggleButton fx:id="unansweredToggle" layoutX="124.0" mnemonicParsing="false" onAction="#setFilterOnUnanswered" selected="true" style="-fx-background-color: #414141;" text="Unanswered" textFill="WHITE" toggleGroup="$filterPrivileged" AnchorPane.leftAnchor="124.0">
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </ToggleButton>
+                                <ToggleButton fx:id="bothToggle" layoutX="209.0" layoutY="1.0" mnemonicParsing="false" onAction="#setFilterOnBoth" style="-fx-background-color: #414141;" text="Both" textFill="WHITE" toggleGroup="$filterPrivileged" AnchorPane.leftAnchor="209.0">
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </ToggleButton>
+                            </children>
+                        </AnchorPane>
+                        <ListView fx:id="questionsListPrivileged" layoutY="42.0" prefHeight="287.0" prefWidth="362.0" style="-fx-background-color: #2B2B2B; -fx-background-radius: 20px; -fx-border-color: #0c7bc0; -fx-border-radius: 20px;" stylesheets="@ListViewStyle.css" AnchorPane.bottomAnchor="0.4000000000000341" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="42.0" />
+                    </children>
+                </AnchorPane>
+                <Button focusTraversable="false" layoutX="540.0" layoutY="14.0" mnemonicParsing="false" onAction="#exitRoom" style="-fx-background-color: #282828; -fx-border-color: #0c7bc0; -fx-background-radius: 5px; -fx-border-radius: 5px; -fx-text-fill: #ffffff;" text="Quit" AnchorPane.rightAnchor="18.399999999999977" AnchorPane.topAnchor="14.0">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Button>
+                <TextField fx:id="roomCodePrivileged" alignment="CENTER" editable="false" focusTraversable="false" layoutX="430.0" layoutY="308.0" prefHeight="27.0" prefWidth="156.0" style="-fx-background-color: #2B2B2B; -fx-background-radius: 20px; -fx-border-color: #0c7bc0; -fx-border-radius: 20px; -fx-text-fill: #ffffff;" AnchorPane.bottomAnchor="64.8" AnchorPane.rightAnchor="14.0" />
+                <TextField alignment="CENTER" editable="false" focusTraversable="false" layoutX="430.0" layoutY="285.0" prefHeight="10.0" prefWidth="156.0" style="-fx-background-color: #212121; -fx-text-fill: #ffffff;" text="Room code:" AnchorPane.bottomAnchor="91.8" AnchorPane.rightAnchor="14.0">
+                    <font>
+                        <Font size="10.0" />
+                    </font>
+                </TextField>
+                <TextField fx:id="accessTokenPrivileged" alignment="CENTER" editable="false" focusTraversable="false" layoutX="430.0" layoutY="358.0" prefHeight="27.0" prefWidth="156.0" style="-fx-background-color: #2B2B2B; -fx-background-radius: 20px; -fx-border-color: #0c7bc0; -fx-border-radius: 20px; -fx-text-fill: #ffffff;" AnchorPane.bottomAnchor="14.8" AnchorPane.rightAnchor="14.0" />
+                <TextField alignment="CENTER" editable="false" focusTraversable="false" layoutX="430.0" layoutY="335.0" prefHeight="10.0" prefWidth="156.0" style="-fx-background-color: #212121; -fx-text-fill: #ffffff;" text="Access Token:" AnchorPane.bottomAnchor="41.8" AnchorPane.rightAnchor="14.0">
+                    <font>
+                        <Font size="10.0" />
+                    </font>
+                </TextField>
+                <Button focusTraversable="false" layoutX="452.0" layoutY="256.0" mnemonicParsing="false" onAction="#exportEverything" style="-fx-background-color: #282828; -fx-border-color: #0c7bc0; -fx-background-radius: 5px; -fx-border-radius: 5px; -fx-text-fill: #ffffff;" text="Export Everything" AnchorPane.rightAnchor="36.8" AnchorPane.topAnchor="256.0">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Button>
+                <Group fx:id="lecturerAddons" layoutX="430.0" layoutY="51.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="51.0">
+                    <children>
+                        <TextField alignment="TOP_LEFT" editable="false" focusTraversable="false" layoutY="43.0" prefHeight="144.0" prefWidth="156.0" style="-fx-background-color: #2B2B2B; -fx-background-radius: 20px; -fx-border-color: #0c7bc0; -fx-border-radius: 20px; -fx-text-fill: #ffffff;" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2b2b2b" height="112.0" layoutX="1.0" layoutY="59.0" pickOnBounds="true" stroke="#0d7bbf00" strokeLineCap="ROUND" strokeType="INSIDE" width="154.0" />
+                        <TextField fx:id="fastPlaceholder" alignment="BOTTOM_LEFT" editable="false" focusTraversable="false" layoutX="12.0" layoutY="48.0" prefHeight="23.0" prefWidth="132.0" style="-fx-background-color: #2b2b2b; -fx-text-fill: #ffffff;" text="Fast">
+                            <font>
+                                <Font size="10.0" />
+                            </font>
+                        </TextField>
+                        <TextField fx:id="alrightPlaceholder" alignment="BOTTOM_LEFT" editable="false" focusTraversable="false" layoutX="12.0" layoutY="87.0" prefHeight="23.0" prefWidth="132.0" style="-fx-background-color: #2b2b2b; -fx-text-fill: #ffffff;" text="Alright">
+                            <font>
+                                <Font size="10.0" />
+                            </font>
+                        </TextField>
+                        <TextField fx:id="slowPlaceholder" alignment="BOTTOM_LEFT" editable="false" focusTraversable="false" layoutX="12.0" layoutY="124.0" prefHeight="23.0" prefWidth="132.0" style="-fx-background-color: #2b2b2b; -fx-text-fill: #ffffff;" text="Slow">
+                            <font>
+                                <Font size="10.0" />
+                            </font>
+                        </TextField>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#414141" height="16.0" layoutX="12.0" layoutY="67.0" pickOnBounds="true" stroke="#414141" strokeLineCap="ROUND" strokeType="INSIDE" style="-fx-arc-height: 15; -fx-arc-width: 15;" width="132.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#414141" height="16.0" layoutX="12.0" layoutY="107.0" pickOnBounds="true" stroke="#414141" strokeLineCap="ROUND" strokeType="INSIDE" style="-fx-arc-height: 15; -fx-arc-width: 15;" width="132.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#414141" height="16.0" layoutX="12.0" layoutY="144.0" pickOnBounds="true" stroke="#414141" strokeLineCap="ROUND" strokeType="INSIDE" style="-fx-arc-height: 15; -fx-arc-width: 15;" width="132.0" />
+                        <Rectangle fx:id="fastBar" arcHeight="5.0" arcWidth="5.0" fill="#0c7bc0" height="16.0" layoutX="12.0" layoutY="67.0" pickOnBounds="true" stroke="#0c7bc0" strokeLineCap="ROUND" strokeType="INSIDE" style="-fx-arc-height: 15; -fx-arc-width: 15;" width="42.0" />
+                        <Rectangle fx:id="alrightBar" arcHeight="5.0" arcWidth="5.0" fill="#0c7bc0" height="16.0" layoutX="12.0" layoutY="107.0" pickOnBounds="true" stroke="#0c7bc0" strokeLineCap="ROUND" strokeType="INSIDE" style="-fx-arc-height: 15; -fx-arc-width: 15;" width="87.0" />
+                        <Rectangle fx:id="slowBar" arcHeight="5.0" arcWidth="5.0" fill="#0c7bc0" height="16.0" layoutX="12.0" layoutY="144.0" pickOnBounds="true" stroke="#0c7bc0" strokeLineCap="ROUND" strokeType="INSIDE" style="-fx-arc-height: 15; -fx-arc-width: 15;" width="51.0" />
+                        <Button focusTraversable="false" layoutX="30.0" mnemonicParsing="false" onAction="#enterLecturerMode" style="-fx-background-color: #282828; -fx-border-color: #0c7bc0; -fx-background-radius: 5px; -fx-border-radius: 5px; -fx-text-fill: #ffffff;" text="Lecturer Mode">
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                        </Button>
+                    </children>
+                </Group>
+                <Button fx:id="endLectureButton" focusTraversable="false" layoutX="431.0" layoutY="14.0" mnemonicParsing="false" onAction="#endLecture" style="-fx-background-color: #282828; -fx-border-color: #0c7bc0; -fx-background-radius: 5px; -fx-border-radius: 5px; -fx-text-fill: #ffffff;" text="End Lecture" AnchorPane.rightAnchor="89.0" AnchorPane.topAnchor="14.0">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Button>
+                <Button fx:id="quizToggle" focusTraversable="false" layoutX="336.0" layoutY="14.0" mnemonicParsing="false" onAction="#toggleQuiz" style="-fx-background-color: #282828; -fx-border-color: #0c7bc0; -fx-background-radius: 5px; -fx-border-radius: 5px; -fx-text-fill: #ffffff;" text="Start Quiz" AnchorPane.rightAnchor="193.6" AnchorPane.topAnchor="14.0">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Button>
+                <Slider fx:id="sliderQuizSize" blockIncrement="7.0" layoutX="128.0" layoutY="11.0" majorTickUnit="1.0" max="10.0" min="2.0" minorTickCount="0" prefHeight="14.0" prefWidth="183.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="2.0" />
+                <TextField alignment="BOTTOM_LEFT" editable="false" focusTraversable="false" layoutX="2.0" layoutY="15.0" prefHeight="23.0" prefWidth="95.0" style="-fx-background-color: #212121; -fx-text-fill: #ffffff;" text="Current Quiz Size:">
+                    <font>
+                        <Font size="10.0" />
+                    </font>
+                </TextField>
+                <TextField fx:id="quizSize" alignment="BOTTOM_LEFT" editable="false" focusTraversable="false" layoutX="90.0" layoutY="16.0" prefHeight="23.0" prefWidth="32.0" style="-fx-background-color: #212121; -fx-text-fill: #ffffff;" text="${sliderQuizSize.value}">
+                    <font>
+                        <Font size="10.0" />
+                    </font>
+                </TextField>
+            </children>
+        </AnchorPane>
+        <AnchorPane fx:id="questionScreenLecturerMode" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #212121;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <top>
+                        <TextField alignment="CENTER" editable="false" focusTraversable="false" prefHeight="58.0" prefWidth="322.0" style="-fx-background-color: #212121; -fx-text-fill: #ffffff;" text="You are in Lecturer Mode" BorderPane.alignment="CENTER">
+                            <font>
+                                <Font size="26.0" />
+                            </font>
+                            <BorderPane.margin>
+                                <Insets top="15.0" />
+                            </BorderPane.margin>
+                        </TextField>
+                    </top>
+                </BorderPane>
+                <Button fx:id="refreshButtonLecturerMode" focusTraversable="false" layoutX="505.0" layoutY="50.0" mnemonicParsing="false" onAction="#listQuestionsClicked" prefHeight="26.0" prefWidth="51.0" style="-fx-background-color: #0c7bc0; -fx-text-fill: F29913; -fx-background-radius: 100px; -fx-text-fill: #000000;" text="Refresh" AnchorPane.rightAnchor="43.8" AnchorPane.topAnchor="50.0">
+                    <font>
+                        <Font size="10.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Button>
+                <ListView fx:id="questionsListLecturerMode" layoutX="43.0" layoutY="91.0" prefHeight="287.0" prefWidth="513.0" style="-fx-background-color: #2B2B2B; -fx-background-radius: 20px; -fx-border-color: #0c7bc0; -fx-border-radius: 20px;" stylesheets="@ListViewStyle.css" AnchorPane.bottomAnchor="21.80000000000001" AnchorPane.leftAnchor="43.0" AnchorPane.rightAnchor="43.39999999999998" AnchorPane.topAnchor="91.0" />
+                <Button focusTraversable="false" layoutX="43.0" layoutY="50.0" mnemonicParsing="false" onAction="#exitLecturerMode" style="-fx-background-color: #282828; -fx-border-color: #0c7bc0; -fx-background-radius: 5px; -fx-border-radius: 5px; -fx-text-fill: #ffffff;" text="Return" AnchorPane.leftAnchor="43.0" AnchorPane.topAnchor="50.0">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Button>
+            </children>
+        </AnchorPane>
+
+
+        <Button fx:id="backButton" mnemonicParsing="false" onAction="#pageBack" prefHeight="26.0" prefWidth="67.0" style="-fx-background-color: #212121; -fx-text-fill: F29913; -fx-background-radius: 5px; -fx-border-color: #707070;" text="&lt;&lt; Back" visible="false" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <font>
+                <Font size="10.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+    </children>
+</AnchorPane>
